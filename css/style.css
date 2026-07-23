@@ -129,16 +129,22 @@ section .text-muted {
     background-color: #f8f9fa;
 }
 
+#expertise .row {
+    align-items: stretch;
+}
+
 #expertise .expertise-card {
     background: #ffffff;
     border-radius: 12px;
-    padding: 25px 20px;
+    padding: 30px 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    min-height: 220px;
 }
 
 #expertise .expertise-card:hover {
@@ -146,15 +152,18 @@ section .text-muted {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
 }
 
-#expertise .expertise-card img {
+/* --- Images de dimensions FIXES et identiques --- */
+#expertise .expertise-icon-img {
+    width: 80px;
+    height: 80px;
     display: block;
     margin: 0 auto;
-    max-height: 80px;
-    width: auto;
+    object-fit: contain;
 }
 
+/* --- Texte --- */
 #expertise .expertise-card h4 {
-    margin-top: 10px;
+    margin-top: 12px;
     margin-bottom: 5px;
     font-weight: 700;
     font-size: 1.1rem;
@@ -169,28 +178,103 @@ section .text-muted {
 
 /* ---- SECTION SERVICES ---- */
 
+#services {
+    background-color: #f8f9fa;
+}
+
 #services .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
+    height: 100%;
 }
 
 #services .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10) !important;
 }
 
+/* --- Cercle avec image qui remplit tout --- */
+#services .service-icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #f0f4ff;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 0 auto;
+}
+
+#services .card:hover .service-icon-circle {
+    background-color: #e0e8ff;
+    transform: scale(1.05);
+}
+
+/* --- L'image remplit TOUT le cercle --- */
+#services .service-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* ou "contain" selon l'effet voulu */
+    display: block;
+}
+
+/* --- l'image garde ses proportions sans être coupée --- */
+#services .service-icon-img-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 10px;
+}
+
+/* --- Texte --- */
 #services .card-body {
-    padding: 30px 25px;
+    padding: 20px 20px 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#services .bi {
-    font-size: 2.5rem;
+#services .card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
 }
 
-#services .btn {
-    border-radius: 20px;
-    padding: 8px 20px;
+#services .card-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+#services .btn-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0d6efd;
+    padding: 0;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+#services .btn-link:hover {
+    color: #0a58ca;
+}
+
+#services .btn-link i {
+    font-size: 0.8rem;
+    margin-left: 3px;
+    transition: transform 0.3s ease;
+}
+
+#services .btn-link:hover i {
+    transform: translateX(3px);
 }
 
 /* ---- SECTION SOLUTIONS ---- */
@@ -539,4 +623,39 @@ footer .border-top {
 
 .animate-on-scroll {
     animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ---- BOUTON "LEARN MORE" (Services ET Solutions) ---- */
+
+.btn-service-learn,
+.btn-solution-learn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0d6efd;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-service-learn i,
+.btn-solution-learn i {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+/* --- Effet au survol --- */
+.btn-service-learn:hover,
+.btn-solution-learn:hover {
+    color: #0a58ca;
+    border-bottom-color: #0d6efd;
+}
+
+.btn-service-learn:hover i,
+.btn-solution-learn:hover i {
+    transform: translateX(5px);
 }

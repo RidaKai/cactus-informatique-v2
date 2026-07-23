@@ -1,19 +1,74 @@
+/* ---- STYLES GÉNÉRAUX ---- */
+
 /* ---- Reset / Base ---- */
 body {
     padding-top: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-/* ---- Navbar personnalisée ---- */
+/* ---- NAVBAR AVEC LOGO ---- */
+
 .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    font-size: 1.25rem;
+    padding: 0;
+    transition: opacity 0.3s ease;
 }
 
+.navbar-brand:hover {
+    opacity: 0.9;
+}
+
+/* Logo dans la navbar */
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+/* Couleurs du nom */
+.navbar-brand .cactus-name {
+    color: #fff;
+    font-weight: 700;
+}
+
+.navbar-brand .informatique-name {
+    color: #ffc107;
+    font-weight: 700;
+}
+
+/* Liens de navigation */
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255,255,255,0.85);
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 500;
-    transition: color 0.2s;
+    transition: color 0.3s, transform 0.2s;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.navbar-dark .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ffc107;
+    transition: width 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover::after {
+    width: 70%;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -21,44 +76,114 @@ body {
     color: #ffc107;
 }
 
-/* ---- Carousel ---- */
+/* ---- CAROUSEL ---- */
+
 .carousel-item {
     background-size: cover;
     background-position: center;
 }
 
 .carousel-item h1 {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+.carousel-item .lead {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-item .btn {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 30px;
+    padding: 12px 30px;
 }
 
 .carousel-item .btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* ---- Responsive : ajustements mobiles ---- */
-@media (max-width: 768px) {
-    .carousel-item {
-        height: 350px !important;
-    }
-    
-    .carousel-item h1 {
-        font-size: 1.8rem !important;
-    }
-    
-    .carousel-item .lead {
-        font-size: 1rem !important;
-    }
+/* ---- SECTIONS GÉNÉRALES ---- */
+
+section {
+    padding: 60px 0;
 }
 
-/* ---- Products Section ---- */
+section h2,
+section h1 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+section .text-muted {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ---- SECTION SERVICES ---- */
+
+#services .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#services .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+#services .card-body {
+    padding: 30px 25px;
+}
+
+#services .bi {
+    font-size: 2.5rem;
+}
+
+#services .btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+/* ---- SECTION SOLUTIONS ---- */
+
+#solutions {
+    background-color: #f8f9fa;
+}
+
+#solutions .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#solutions .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+#solutions .card-body {
+    padding: 30px 25px;
+}
+
+#solutions .bi {
+    font-size: 2.5rem;
+}
+
+#solutions .btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+/* ---- SECTION PRODUCTS ---- */
+
 #products .row {
-    padding: 20px 0;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 30px 0;
+    border-bottom: 1px solid #e9ecef;
 }
 
 #products .row:last-child {
@@ -68,15 +193,18 @@ body {
 #products .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    border-radius: 12px;
 }
 
 #products .card:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12) !important;
 }
 
 #products .card img {
     transition: transform 0.5s ease;
+    width: 100%;
+    height: auto;
 }
 
 #products .card:hover img {
@@ -95,12 +223,202 @@ body {
 #products .btn {
     margin-top: 10px;
     padding: 10px 25px;
+    border-radius: 25px;
 }
 
-/* ---- Responsive ---- */
+#products h3 {
+    font-weight: 700;
+}
+
+/* ---- SECTION CLIENTS ---- */
+
+#clients .client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 120px;
+}
+
+#clients .client-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+#clients .client-logo img {
+    max-height: 80px;
+    max-width: 100%;
+    filter: grayscale(10%);
+    transition: filter 0.3s ease;
+}
+
+#clients .client-logo:hover img {
+    filter: grayscale(0%);
+}
+
+/* ---- SECTION CONTACT ---- */
+
+#contact {
+    background-color: #f8f9fa;
+}
+
+#contact .form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+#contact .btn-primary {
+    border-radius: 25px;
+    padding: 12px 35px;
+    font-weight: 600;
+}
+
+#contact .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#contact .social-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+#contact .social-links a.facebook:hover {
+    background: #1877f2;
+    color: #fff;
+}
+
+#contact .social-links a.linkedin:hover {
+    background: #0a66c2;
+    color: #fff;
+}
+
+#contact .social-links a.twitter:hover {
+    background: #1da1f2;
+    color: #fff;
+}
+
+#contact .social-links a.youtube:hover {
+    background: #ff0000;
+    color: #fff;
+}
+
+#contact .contact-details i {
+    width: 25px;
+    color: #0d6efd;
+}
+
+/* ---- FOOTER ---- */
+
+footer {
+    background-color: #212529;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 30px 0;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ffc107;
+}
+
+footer .border-top {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ---- RESPONSIVE (MOBILE FIRST) ---- */
+
+/* Tablettes et petits écrans */
+@media (max-width: 991px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .navbar-brand img {
+        height: 30px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+}
+
+/* Mobiles */
 @media (max-width: 768px) {
+    /* Navbar */
+    .navbar-brand {
+        font-size: 0.9rem;
+        gap: 5px;
+    }
+    
+    .navbar-brand img {
+        height: 25px;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link {
+        padding: 8px 0;
+        text-align: center;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link::after {
+        display: none;
+    }
+    
+    /* Carousel */
+    .carousel-item {
+        height: 350px !important;
+    }
+    
+    .carousel-item h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .carousel-item .lead {
+        font-size: 1rem !important;
+    }
+    
+    .carousel-item .btn {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+    
+    /* Sections */
+    section {
+        padding: 30px 0;
+    }
+    
+    section h2,
+    section h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Products */
     #products .row {
         text-align: center;
+        padding: 20px 0;
     }
     
     #products .order-md-1,
@@ -112,4 +430,69 @@ body {
         text-align: left;
         display: inline-block;
     }
+    
+    #products .card img {
+        max-height: 200px;
+        object-fit: cover;
+    }
+    
+    /* Clients */
+    #clients .client-logo {
+        height: 100px;
+        padding: 15px;
+    }
+    
+    #clients .client-logo img {
+        max-height: 60px;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 0.8rem;
+    }
+    
+    .navbar-brand img {
+        height: 22px;
+    }
+    
+    .carousel-item {
+        height: 280px !important;
+    }
+    
+    .carousel-item h1 {
+        font-size: 1.4rem !important;
+    }
+    
+    section h2,
+    section h1 {
+        font-size: 1.5rem;
+    }
+    
+    #clients .client-logo {
+        height: 80px;
+        padding: 10px;
+    }
+    
+    #clients .client-logo img {
+        max-height: 45px;
+    }
+}
+
+/* ---- ANIMATIONS (pour plus tard) ---- */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    animation: fadeInUp 0.6s ease forwards;
 }

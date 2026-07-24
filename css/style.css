@@ -263,9 +263,7 @@ section .text-muted {
     padding: 8px 20px;
 }
 
-/* ============================================================
-   SECTION SOLUTIONS (avec images circulaires)
-   ============================================================ */
+/* ---- SECTION SOLUTIONS ---- */
 
 #solutions {
     background-color: #f8f9fa;
@@ -283,7 +281,7 @@ section .text-muted {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10) !important;
 }
 
-/* --- Cercle pour l'image --- */
+/* --- Cercle avec image qui remplit tout --- */
 #solutions .solution-icon-circle {
     width: 100px;
     height: 100px;
@@ -309,6 +307,15 @@ section .text-muted {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* --- l'image garde ses proportions sans être coupée --- */
+#solutions .solution-icon-img-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 10px;
 }
 
 /* --- Texte --- */

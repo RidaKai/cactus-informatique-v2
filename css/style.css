@@ -752,14 +752,35 @@ footer .border-top {
 
 /* PAGE HOSTING  */
 
-/* --- BANNIÈRE AVEC IMAGE (méthode <img>) --- */
+/* --- Structure de la page --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Contenu principal qui pousse le footer --- */
+.hosting-content {
+    background: #f8f9fa;
+    padding: 40px 0;
+    flex: 1 0 auto;  /* Important : pousse le footer en bas */
+}
+
+/* --- BANNIÈRE --- */
 .hosting-hero {
     position: relative;
-    min-height: 400px;
+    min-height: 300px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .hosting-hero .hero-image {
@@ -783,11 +804,6 @@ footer .border-top {
 }
 
 /* --- CONTENU PRINCIPAL --- */
-.hosting-content {
-    background: #f8f9fa;
-    padding: 60px 0;
-}
-
 .hosting-content h1 {
     font-weight: 800;
     letter-spacing: 2px;
@@ -797,11 +813,12 @@ footer .border-top {
     color: #6c757d;
 }
 
-/* --- Image à droite --- */
+/* --- Image --- */
 .hosting-image {
-    max-height: 450px;
+    max-height: 400px;
     width: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     border: 4px solid #fff;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
@@ -810,7 +827,7 @@ footer .border-top {
 .feature-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .feature-item {
@@ -818,7 +835,7 @@ footer .border-top {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 15px;
+    padding: 8px 15px;
     background: #ffffff;
     border-radius: 10px;
     cursor: pointer;
@@ -836,7 +853,7 @@ footer .border-top {
 
 .feature-item .check-icon {
     flex-shrink: 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .feature-item .check-icon i {
@@ -857,7 +874,7 @@ footer .border-top {
     transform: translateX(-50%) scale(0.8);
     background: #28a745;
     color: #ffffff;
-    padding: 8px 20px;
+    padding: 6px 18px;
     border-radius: 30px;
     font-size: 0.8rem;
     font-weight: 500;
@@ -896,20 +913,32 @@ footer .border-top {
     box-shadow: 0 8px 30px rgba(40, 167, 69, 0.3);
 }
 
+/* --- FOOTER --- */
+footer {
+    flex-shrink: 0;
+    background-color: #212529;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 20px 0;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 992px) {
     .hosting-hero {
-        min-height: 250px;
+        min-height: 200px;
     }
 
     .hosting-hero .hero-phrase {
         font-size: 1.5rem !important;
     }
 
+    .hosting-content {
+        padding: 30px 0;
+    }
+
     .hosting-image {
-        max-height: 300px;
-        margin-top: 30px;
+        max-height: 280px;
+        margin-top: 20px;
     }
 
     .feature-item .tooltip-bubble {
@@ -919,7 +948,7 @@ footer .border-top {
 
 @media (max-width: 768px) {
     .hosting-hero {
-        min-height: 200px;
+        min-height: 150px;
     }
 
     .hosting-hero .hero-phrase {
@@ -927,20 +956,54 @@ footer .border-top {
     }
 
     .hosting-content {
-        padding: 40px 0;
+        padding: 20px 0;
     }
 
     .hosting-content h1 {
-        font-size: 3rem !important;
+        font-size: 2.5rem !important;
+    }
+
+    .feature-item {
+        padding: 6px 10px;
     }
 
     .feature-item .feature-text {
         font-size: 0.85rem;
     }
 
+    .hosting-image {
+        max-height: 200px;
+    }
+
     .hosting-content .btn-success {
         width: 100%;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hosting-hero {
+        min-height: 120px;
+    }
+
+    .hosting-hero .hero-phrase {
+        font-size: 1rem !important;
+    }
+
+    .hosting-content h1 {
+        font-size: 2rem !important;
+    }
+
+    .hosting-image {
+        max-height: 150px;
+    }
+
+    .feature-item {
+        padding: 4px 8px;
+    }
+
+    .feature-item .feature-text {
+        font-size: 0.75rem;
     }
 }
 

@@ -1127,3 +1127,36 @@ footer {
         width: 100%;
     }
 }
+
+/* ---- FAQ ---- */
+
+/* Bouton de la question (fermé) */
+#faq .accordion-button {
+    background-color: #ffffff;
+    color: #198754;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Bouton de la question (survol) */
+#faq .accordion-button:hover {
+    background-color: #f0fff4;
+    color: #157347;
+}
+
+/* Bouton de la question (ouvert) */
+#faq .accordion-button:not(.collapsed) {
+    background-color: #198754;
+    color: #ffffff;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+}
+
+/* Icône flèche en vert */
+#faq .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23198754'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+/* Icône flèche quand ouvert (blanche) */
+#faq .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Cactus Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body { 
+            background: #f8f9fa; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            background: linear-gradient(135deg, #28a745, #198754);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .chat-header h1 { font-weight: 700; }
+        .chat-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 0;
+        }
+        .chat-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        .chat-card .icon-big {
+            font-size: 64px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .chat-card h2 {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .chat-card p {
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+        .btn-start-chat {
+            background: #28a745;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+        }
+        .btn-start-chat:hover {
+            background: #218838;
+            transform: scale(1.05);
+            color: white;
+        }
+        .back-link {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .back-link:hover { text-decoration: underline; }
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/products/LOGO-Cactus.png" alt="Cactus Informatique Logo" height="40" class="me-2">
+                <span>Cactus Informatique</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#solutions">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#clients">Clients</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="chatbot.html">Chatbot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page content -->
+    <div class="chat-header">
+        <div class="container">
+            <h1><i class="bi bi-robot me-2"></i>Chat with Cactus Assistant</h1>
+            <p class="lead">Ask us anything about our services, hosting, development, and more.</p>
+        </div>
+    </div>
+
+    <div class="chat-body">
+        <div class="chat-card">
+            <div class="icon-big">
+                <i class="bi bi-chat-dots"></i>
+            </div>
+            <h2>How can we help you?</h2>
+            <p>
+                Click the button below to start a conversation with our AI assistant. 
+                You can ask about our services, working hours, contact details, and more.
+            </p>
+            <a href="https://huggingface.co/spaces/Ridakai/cactus-chatbot" 
+               target="_blank" 
+               class="btn-start-chat">
+                <i class="bi bi-chat-dots"></i> Start Chatting
+            </a>
+            <br>
+            <a href="index.html" class="back-link"><i class="bi bi-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <p class="mb-0">&copy; Copyright Cactus Informatique 2006 - 2026 . All rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

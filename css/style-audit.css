@@ -1,0 +1,221 @@
+/* ---- STYLES SPÉCIFIQUES À LA PAGE AUDIT & IT CONSULTING ---- */
+
+/* --- Page Header --- */
+.page-header {
+    background: linear-gradient(135deg, #28a745, #198754);
+    color: white;
+    padding: 60px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.page-header h1 {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.page-header .lead {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.page-header .btn-light {
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-weight: 600;
+    color: #28a745;
+    transition: all 0.3s ease;
+}
+
+.page-header .btn-light:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Section Titles --- */
+.section-title {
+    font-weight: 700;
+    color: #28a745;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #28a745;
+    border-radius: 2px;
+}
+
+.section-title.text-center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Benefit Cards --- */
+.benefit-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.12);
+    border-color: #28a745;
+}
+
+.benefit-card .icon {
+    font-size: 40px;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.benefit-card h5 {
+    font-weight: 700;
+}
+
+.benefit-card p {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+/* --- Process Steps --- */
+.process-step {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    border-color: #28a745;
+    box-shadow: 0 5px 20px rgba(40, 167, 69, 0.1);
+}
+
+.process-step .step-number {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: #28a745;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.process-step .step-content h5 {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.process-step .step-content p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* --- What We Analyze --- */
+.analyze-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.analyze-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.1);
+    border-color: #28a745;
+}
+
+.analyze-item i {
+    font-size: 2.8rem;
+    color: #28a745;
+}
+
+.analyze-item h6 {
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.analyze-item p {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+/* --- CTA Section --- */
+.cta-section {
+    background: linear-gradient(135deg, #28a745, #198754);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-section .btn-light {
+    border-radius: 50px;
+    padding: 12px 40px;
+    font-weight: 600;
+    color: #28a745;
+    transition: all 0.3s ease;
+}
+
+.cta-section .btn-light:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 40px 0 30px 0;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    .page-header .lead {
+        font-size: 1rem;
+    }
+    .process-step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .cta-section {
+        padding: 40px 0;
+    }
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+}

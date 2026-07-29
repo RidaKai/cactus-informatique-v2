@@ -8,19 +8,55 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="css/style.css" rel="stylesheet">
     <style>
+        /* ---- PAGE CHATBOT AVEC IMAGE DE FOND ---- */
+        
         body { 
-            background: #f8f9fa; 
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background: url('img/products/BackgroundCactusBot.png') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
         }
+
+        /* Overlay sombre pour que le texte soit lisible */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.50);
+            z-index: 0;
+        }
+
+        /* Tout le contenu au-dessus de l'overlay */
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navbar semi-transparente */
+        .navbar {
+            background: rgba(33, 37, 41, 0.85) !important;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Header avec fond semi-transparent */
         .chat-header {
-            background: linear-gradient(135deg, #28a745, #198754);
+            background: rgba(40, 167, 69, 0.85);
             color: white;
             padding: 30px 0;
             text-align: center;
+            backdrop-filter: blur(4px);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.15);
         }
+
         .chat-header h1 { font-weight: 700; }
+        .chat-header .lead { opacity: 0.9; }
+
+        /* Corps de la page */
         .chat-body {
             flex: 1;
             display: flex;
@@ -28,28 +64,37 @@
             justify-content: center;
             padding: 30px 0;
         }
+
+        /* Carte avec fond blanc semi-transparent */
         .chat-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
             border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             padding: 40px;
             text-align: center;
             max-width: 600px;
             width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
+
         .chat-card .icon-big {
             font-size: 64px;
             color: #28a745;
             margin-bottom: 20px;
         }
+
         .chat-card h2 {
             font-weight: 700;
             margin-bottom: 15px;
+            color: #1a1a1a;
         }
+
         .chat-card p {
-            color: #6c757d;
+            color: #495057;
             margin-bottom: 25px;
         }
+
         .btn-start-chat {
             background: #28a745;
             color: white;
@@ -64,11 +109,13 @@
             gap: 10px;
             border: none;
         }
+
         .btn-start-chat:hover {
             background: #218838;
             transform: scale(1.05);
             color: white;
         }
+
         .back-link {
             color: #28a745;
             text-decoration: none;
@@ -76,16 +123,60 @@
             margin-top: 20px;
             display: inline-block;
         }
+
         .back-link:hover { text-decoration: underline; }
+
+        /* Footer semi-transparent */
         footer {
             flex-shrink: 0;
+            background: rgba(33, 37, 41, 0.85);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 20px 0;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chat-header {
+                padding: 20px 0;
+            }
+            .chat-header h1 {
+                font-size: 1.8rem;
+            }
+            .chat-card {
+                padding: 25px;
+                margin: 0 15px;
+            }
+            .chat-card .icon-big {
+                font-size: 48px;
+            }
+            .btn-start-chat {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+            body {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chat-header h1 {
+                font-size: 1.4rem;
+            }
+            .chat-card {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            .chat-card h2 {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="img/products/LOGO-Cactus.png" alt="Cactus Informatique Logo" height="40" class="me-2">
@@ -101,14 +192,13 @@
                     <li class="nav-item"><a class="nav-link" href="index.html#solutions">Solutions</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#products">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#clients">Clients</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="chatbot.html">Chatbot</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Page content -->
+    <!-- ===== HEADER ===== -->
     <div class="chat-header">
         <div class="container">
             <h1><i class="bi bi-robot me-2"></i>Chat with Cactus Assistant</h1>
@@ -116,6 +206,7 @@
         </div>
     </div>
 
+    <!-- ===== BODY ===== -->
     <div class="chat-body">
         <div class="chat-card">
             <div class="icon-big">
@@ -136,14 +227,14 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="py-4 bg-dark text-white-50">
+    <!-- ===== FOOTER ===== -->
+    <footer>
         <div class="container text-center">
             <p class="mb-0">&copy; Copyright Cactus Informatique 2006 - 2026 . All rights reserved</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- ===== SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

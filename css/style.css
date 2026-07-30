@@ -556,28 +556,28 @@ section .text-muted {
 }
 
 #contact .social-links a.facebook:hover {
-    background: #1877f2;
+    background: #fff;
     color: #fff;
 }
 
 #contact .social-links a.linkedin:hover {
-    background: #0a66c2;
+    background: #fff;
     color: #fff;
 }
 
 #contact .social-links a.twitter:hover {
-    background: #1da1f2;
+    background: #fff;
     color: #fff;
 }
 
 #contact .social-links a.youtube:hover {
-    background: #ff0000;
+    background: #fff;
     color: #fff;
 }
 
 #contact .contact-details i {
     width: 25px;
-    color: #0d6efd;
+    color: #198754;
 }
 
 /* ---- FOOTER ---- */

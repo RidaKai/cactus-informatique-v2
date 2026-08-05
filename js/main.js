@@ -55,10 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
             contactForm
         )
         .then(function(response) {
-            console.log('✅ Succès EmailJS :', response);
+            console.log('✔ Succès EmailJS :', response);
             if (formSuccess) {
                 formSuccess.classList.remove('d-none');
-                formSuccess.textContent = '✅ Your message has been sent successfully! We\'ll get back to you soon.';
+                formSuccess.textContent = '✔ Your message has been sent successfully! We\'ll get back to you soon.';
             }
             contactForm.reset(); // Vide le formulaire
         })

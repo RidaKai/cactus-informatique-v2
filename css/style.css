@@ -904,7 +904,7 @@ footer .border-top {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
 }
 
-/* ---- BOUTON CHATBOT ---- */
+/* ---- BOUTON FLOTTANT CHATBOT AVEC IMAGE ---- */
 
 .chat-float-btn {
     position: fixed;
@@ -917,7 +917,6 @@ footer .border-top {
     background: #28a745;
     color: #ffffff;
     border: none;
-    font-size: 28px;
     box-shadow: 0 4px 16px rgba(40, 167, 69, 0.4);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -925,15 +924,28 @@ footer .border-top {
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    overflow: hidden;
 }
 
 .chat-float-btn:hover {
     transform: scale(1.08);
     box-shadow: 0 6px 24px rgba(40, 167, 69, 0.5);
-    color: #ffffff;
 }
 
-/* Tooltip au survol */
+/* --- Image du chatbot --- */
+.chat-icon-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.chat-float-btn:hover .chat-icon-img {
+    transform: scale(1.05);
+}
+
+/* --- Tooltip --- */
 .chat-float-btn .chat-tooltip {
     position: absolute;
     bottom: 70px;
@@ -966,14 +978,18 @@ footer .border-top {
     transform: translateY(-5px);
 }
 
-/* Responsive mobile */
+/* --- Responsive --- */
 @media (max-width: 480px) {
     .chat-float-btn {
         width: 50px;
         height: 50px;
-        font-size: 22px;
         bottom: 15px;
         right: 15px;
+    }
+    
+    .chat-icon-img {
+        width: 32px;
+        height: 32px;
     }
     
     .chat-float-btn .chat-tooltip {

@@ -20,7 +20,7 @@ body {
     flex: 1 0 auto;
 }
 
-/* --- PAGE HEADER --- */
+/* PAGE HEADER AVEC IMAGE DE FOND */
 
 .page-header {
     position: relative;
@@ -58,7 +58,7 @@ body {
     margin-bottom: 0;
 }
 
-/* --- CONTENU PRINCIPAL --- */
+/* CONTENU PRINCIPAL */
 
 .hosting-content h1 {
     font-weight: 800;
@@ -98,6 +98,7 @@ body {
     transition: all 0.3s ease;
     border: 1px solid #e9ecef;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    -webkit-tap-highlight-color: transparent; 
 }
 
 .feature-item:hover {
@@ -122,15 +123,16 @@ body {
     font-weight: 500;
 }
 
-/* --- Infobulle verte --- */
+/* INFOBULLE VERTE (visible sur desktop ET mobile) */
+
 .feature-item .tooltip-bubble {
     position: absolute;
-    top: -48px;
+    bottom: calc(100% + 12px); 
     left: 50%;
-    transform: translateX(-50%) scale(0.8);
+    transform: translateX(-50%) scale(0.9);
     background: #28a745;
     color: #ffffff;
-    padding: 6px 18px;
+    padding: 8px 20px;
     border-radius: 30px;
     font-size: 0.8rem;
     font-weight: 500;
@@ -140,8 +142,10 @@ body {
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
     z-index: 100;
+    pointer-events: none;  
 }
 
+/* Flèche de l'infobulle */
 .feature-item .tooltip-bubble::after {
     content: '';
     position: absolute;
@@ -153,13 +157,23 @@ body {
     border-top: 8px solid #28a745;
 }
 
+/* --- Hover : afficher l'infobulle (desktop) --- */
 .feature-item:hover .tooltip-bubble {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) scale(1);
 }
 
-/* --- Bouton CTA --- */
+/* --- Tap : afficher l'infobulle (mobile) --- */
+.feature-item:active .tooltip-bubble,
+.feature-item.tapped .tooltip-bubble {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
+/* BOUTON CTA */
+
 .hosting-content .btn-success {
     transition: all 0.3s ease;
 }
@@ -169,7 +183,7 @@ body {
     box-shadow: 0 8px 30px rgba(40, 167, 69, 0.3);
 }
 
-/* --- CTA SECTION --- */
+/* CTA SECTION */
 
 .cta-section {
     background: linear-gradient(135deg, #28a745, #198754);
@@ -192,7 +206,7 @@ body {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* --- FOOTER ---n*/
+/* FOOTER */
 
 footer {
     flex-shrink: 0;
@@ -201,8 +215,9 @@ footer {
     padding: 20px 0;
 }
 
-/* --- RESPONSIVE --- */
+/* RESPONSIVE */
 
+/* --- Tablettes --- */
 @media (max-width: 992px) {
     .page-header {
         padding: 40px 0 30px 0;
@@ -214,17 +229,14 @@ footer {
     .hosting-content {
         padding: 30px 0;
     }
-
     .hosting-image {
         max-height: 280px;
         margin-top: 20px;
     }
-
-    .feature-item .tooltip-bubble {
-        display: none;
-    }
+    /* ⚠️ NE PAS CACHER LES INFOBULLES ICI */
 }
 
+/* --- Mobiles --- */
 @media (max-width: 768px) {
     .page-header {
         min-height: 200px;
@@ -264,20 +276,21 @@ footer {
     }
 }
 
+/* --- Très petits écrans --- */
 @media (max-width: 480px) {
     .page-header {
-        min-height: 200px;
-        padding: 30px 0 20px 0;
+        min-height: 180px;
+        padding: 25px 0 15px 0;
     }
     .page-header h1 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
     .hosting-content h1 {
-        font-size: 2rem !important;
+        font-size: 1.8rem !important;
     }
 
     .hosting-image {
-        max-height: 150px;
+        max-height: 130px;
     }
 
     .feature-item {
@@ -286,25 +299,11 @@ footer {
     .feature-item .feature-text {
         font-size: 0.75rem;
     }
-}
-
- /* RESPONSIVE */
-@media (max-width: 768px) {
-    .page-header {
-        padding: 40px 0 30px 0;
-        min-height: 250px;
-    }
-    .page-header h1 {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-header {
-        min-height: 200px;
-        padding: 30px 0 20px 0;
-    }
-    .page-header h1 {
-        font-size: 1.6rem;
+    .feature-item .tooltip-bubble {
+        font-size: 0.7rem;
+        padding: 4px 12px;
+        white-space: normal;
+        max-width: 200px;
+        bottom: calc(100% + 8px);
     }
 }

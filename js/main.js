@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    console.log('✅ Formulaire trouvé, ajout de l\'écouteur...');
+    console.log('✔ Formulaire trouvé, ajout de l\'écouteur...');
 
     // Écouter l'événement de soumission
     contactForm.addEventListener('submit', function(e) {
@@ -76,4 +76,32 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // SUPPORT INFOBULLES SUR MOBILE (TOUCH)
+
+    const featureItems = document.querySelectorAll('.feature-item');
+    
+    if (featureItems.length > 0) {
+        console.log('✔ Infobulles :', featureItems.length, 'éléments trouvés');
+
+        featureItems.forEach(function(item) {
+            // Au tap sur mobile, ajoute la classe 'tapped'
+            item.addEventListener('touchstart', function(e) {
+                // Retire la classe de tous les autres éléments
+                featureItems.forEach(function(el) {
+                    el.classList.remove('tapped');
+                });
+                // Ajoute la classe à l'élément tapé
+                this.classList.add('tapped');
+                
+                // Fermer l'infobulle après 3 secondes
+                clearTimeout(this.timer);
+                this.timer = setTimeout(() => {
+                    this.classList.remove('tapped');
+                }, 3000);
+            });
+        });
+    } else {
+        console.log('ℹ️ Aucun élément .feature-item trouvé pour les infobulles');
+    }
 });

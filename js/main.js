@@ -104,4 +104,26 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log('ℹ️ Aucun élément .feature-item trouvé pour les infobulles');
     }
+
 });
+
+// TOGGLE TECHNOLOGIES (version simple avec onclick)
+
+function toggleTech(id) {
+    console.log('🔄 toggleTech appelé avec id :', id);
+    
+    const element = document.getElementById(id);
+    console.log('📦 Élément trouvé :', element);
+    
+    if (element) {
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+            console.log('✅ Technologies affichées');
+        } else {
+            element.style.display = 'none';
+            console.log('✅ Technologies cachées');
+        }
+    } else {
+        console.error('❌ Élément #' + id + ' non trouvé !');
+    }
+}

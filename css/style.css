@@ -509,6 +509,44 @@ section .text-muted {
     font-weight: 700;
 }
 
+/* TECHNOLOGIES LIST */
+
+.tech-list {
+    background: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    margin-top: 8px;
+}
+
+.tech-list .badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.tech-list .badge.bg-primary { background-color: #0d6efd !important; }
+.tech-list .badge.bg-danger { background-color: #dc3545 !important; }
+.tech-list .badge.bg-warning { background-color: #ffc107 !important; color: #212529 !important; }
+.tech-list .badge.bg-info { background-color: #0dcaf0 !important; color: #212529 !important; }
+.tech-list .badge.bg-success { background-color: #28a745 !important; }
+.tech-list .badge.bg-secondary { background-color: #6c757d !important; }
+.tech-list .badge.bg-dark { background-color: #212529 !important; }
+
+.tech-wrapper {
+    margin-top: 10px;
+}
+
+.tech-toggle {
+    transition: all 0.3s ease;
+}
+
+.tech-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+}
+
 /* ---- SECTION CLIENTS ---- */
 
 #clients {

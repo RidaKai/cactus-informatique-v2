@@ -19,11 +19,6 @@
     <link href="css/style-audit.css" rel="stylesheet">
 </head>
 
-    <!-- ===== BOUTON FLOTTANT CHATBOT ===== -->
-    <a href="chatbot.html" class="chat-float-btn" aria-label="Open the chatbot">
-    <img src="img/products/PfpCactusBot.png" alt="Chatbot" class="chat-icon-img">
-    <span class="chat-tooltip">Chat with us</span>
-    </a>
 <body>
 
     <!-- ===== NAVBAR ===== -->
@@ -199,7 +194,39 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS -->
+    <!-- CHATBOT WIDGET FLOTTANT -->
+    
+    <!-- Bouton flottant -->
+    <button id="chatFloatBtn" class="chat-float-btn" aria-label="Open chatbot">
+        <img src="img/products/PfpCactusBot.png" alt="Chatbot" class="chat-float-icon">
+        <span class="chat-tooltip">Chat with us</span>
+    </button>
+
+    <!-- Fenêtre du chatbot -->
+    <div id="chatWidget" class="chat-widget">
+        <div class="chat-widget-header">
+            <div class="chat-widget-header-content">
+                <img src="img/products/PfpCactusBot.png" alt="Cactus" class="chat-widget-avatar">
+                <div>
+                    <h5>Cactus Assistant</h5>
+                    <small>Online</small>
+                </div>
+                <button id="chatWidgetClose" class="chat-widget-close">✕</button>
+            </div>
+        </div>
+        <div class="chat-widget-messages" id="chatWidgetMessages"></div>
+        <div class="chat-widget-input">
+            <input type="text" id="chatWidgetInput" placeholder="Type your question...">
+            <button id="chatWidgetSendBtn">
+                <i class="bi bi-send"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let waitingForCity = false;
     let lastWeatherLang = 'en';
 
-    //  BASE DE CONNAISSANCES
+    //  BASE DE CONNAISSANCES (ENRICHIE)
     
     const knowledgeBase = {
         en: {
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // --- COMMENT CA VA ---
             howareyou: {
                 keywords: ["how are you", "how are you doing", "how do you do", "how's it going", "how's everything", "how is it going"],
-                response: "😊 I'm doing great, thank you for asking! How can I help you today?"
+                response: "I'm doing great, thank you for asking! How can I help you today?"
             },
             // --- REMERCIEMENTS ---
             thanks: {
@@ -181,6 +181,145 @@ document.addEventListener('DOMContentLoaded', function() {
                 keywords: ["help", "aide", "assist", "support", "what can you do", "what do you do", "can you help"],
                 response: "💡 I can answer questions about:<br>• Our services (hosting, audit, development)<br>• Our working hours<br>• Contact details (phone, email, address)<br>• Our clients and company<br>• You can also ask for the contact form with 'give me the form'<br>• The current date with 'today'<br>• The weather with 'weather in [city]'"
             },
+
+            // --- QUESTIONS GENERALES SUR L'ENTREPRISE ---
+            who: {
+                keywords: ["who are you", "who is cactus", "what is cactus", "tell me about cactus", "presentation"],
+                response: "🏢 Cactus Informatique is an IT company based in Casablanca, Morocco, founded in 2006. We specialize in IT services, hosting, and software development."
+            },
+            experience: {
+                keywords: ["how long", "years", "experience", "since", "2006", "established", "founded", "age", "how old"],
+                response: "📅 We have been in business since 2006, which means over 18 years of experience in the IT industry."
+            },
+            office: {
+                keywords: ["office", "physical office", "visit", "come", "see you", "rendezvous", "meeting"],
+                response: "🏢 Yes, we have a physical office in Casablanca. You are welcome to visit us during working hours at 69 Lotissement Halioua, 20001, CASABLANCA AIN SEBAA, MOROCCO."
+            },
+
+            // --- QUESTIONS SUR LES SERVICES ---
+            hosting_explain: {
+                keywords: ["what is hosting", "web hosting explain", "hosting definition", "c'est quoi l'hebergement"],
+                response: "🌐 Web hosting is a service that allows you to publish your website on the internet. We offer shared hosting, VPS, and dedicated servers with cPanel, free SSL, and a dedicated technical advisor."
+            },
+            vps_explain: {
+                keywords: ["what is vps", "vps explain", "virtual private server", "vps definition"],
+                response: "🖥️ VPS (Virtual Private Server) is a hosting plan that gives you dedicated resources on a shared server. It offers more control and performance than shared hosting."
+            },
+            audit_explain: {
+                keywords: ["what is it audit", "it auditing", "audit definition", "audit informatique"],
+                response: "🔍 IT auditing is a process to evaluate your IT infrastructure, security, compliance, and operational workflows. We identify risks and provide recommendations to improve your systems."
+            },
+            software_explain: {
+                keywords: ["what software", "what kind of software", "software development", "develop apps"],
+                response: "💻 We develop custom software including commercial management, payroll systems, online declarations, and business management web applications."
+            },
+            mobile_apps: {
+                keywords: ["mobile app", "android", "ios", "phone app", "application mobile"],
+                response: "📱 We primarily focus on web applications. For mobile solutions, we can discuss your needs on a case-by-case basis."
+            },
+            virtualization_explain: {
+                keywords: ["what is virtualization", "virtualization definition", "virtualisation definition"],
+                response: "☁️ Virtualization allows you to run multiple virtual servers on a single physical server. It helps optimize resources and reduce hardware costs."
+            },
+            opensource_explain: {
+                keywords: ["what is open source", "open source definition", "logiciel libre"],
+                response: "🆓 Open source software is free to use, modify, and distribute. We use open source solutions like CRM, ERP, CMS, and databases to reduce costs for our clients."
+            },
+
+            // --- QUESTIONS SUR LES TARIFS ET DEVIS ---
+            pricing: {
+                keywords: ["price", "cost", "tarif", "prix", "how much", "devis", "quote", "tarifs", "coût", "combien", "free trial", "discount", "promotion"],
+                response: "💰 Our prices vary depending on the service and your specific needs. Please contact us for a personalized quote via the contact form or call us at (+212) 522-343-545."
+            },
+            price_list: {
+                keywords: ["price list", "catalogue", "tarifs", "grille tarifaire", "pricing page"],
+                response: "📋 We prefer to tailor our prices to each client's needs rather than publishing a fixed price list. Contact us for a personalized quote."
+            },
+            trial: {
+                keywords: ["free trial", "trial", "demo", "essai", "démo", "try", "tester"],
+                response: "🎯 We don't offer a free trial, but we can provide a demo of our products on request. Contact us to schedule a demonstration."
+            },
+            long_term_discount: {
+                keywords: ["discount", "réduction", "annual", "annuel", "long term", "long terme", "commitment", "engagement"],
+                response: "💲 Yes, we offer discounts for annual commitments and long-term contracts. Contact us for more details."
+            },
+
+            // --- QUESTIONS TECHNIQUES ---
+            technologies: {
+                keywords: ["technology", "technologie", "tools", "outils", "tech stack", "stack technique"],
+                response: "💻 We use modern technologies including HTML, CSS, JavaScript, PHP, MySQL, Bootstrap, jQuery, and Linux."
+            },
+            wordpress: {
+                keywords: ["wordpress", "wp", "auto installer", "installateur automatique"],
+                response: "📝 Yes, we offer hosting with WordPress auto-installer. You can install WordPress with one click from your cPanel."
+            },
+            ssl: {
+                keywords: ["ssl", "certificate", "certificat", "https", "secure", "sécurisé"],
+                response: "🔒 Yes, we include free SSL certificates with our hosting plans to secure your website."
+            },
+            uptime: {
+                keywords: ["uptime", "guarantee", "garantie", "availability", "disponibilité", "99.9"],
+                response: "⏱️ We guarantee 99.9% uptime for our hosting services to ensure your website is always available."
+            },
+            backup: {
+                keywords: ["backup", "sauvegarde", "restore", "restauration", "data recovery"],
+                response: "💾 Yes, we provide regular backups as part of our hosting and security solutions. Your data is automatically backed up."
+            },
+            migration: {
+                keywords: ["migration", "transfer", "transfert", "move", "déplacer", "existing site", "site existant"],
+                response: "🔄 Yes, we offer migration assistance for new clients. We can help you transfer your existing website to our hosting services."
+            },
+
+            // --- QUESTIONS SUR LE SUPPORT ---
+            support: {
+                keywords: ["support", "assistance", "help", "aide", "maintenance", "24/7", "response time", "délai", "disponibilité"],
+                response: "🛠️ Our support is available Monday to Friday, from 9:00 AM to 5:00 PM. You can reach us by phone at (+212) 522-343-545 or by email at contact@cactus.net.ma."
+            },
+            response_time: {
+                keywords: ["response time", "reply", "réponse", "délai de réponse", "wait", "attente"],
+                response: "⏳ We aim to respond to all inquiries within 24 hours. For urgent matters, please call us directly at (+212) 522-343-545."
+            },
+            post_delivery: {
+                keywords: ["after delivery", "post delivery", "after project", "maintenance contract", "contrat de maintenance", "ongoing support"],
+                response: "🔧 Yes, we offer maintenance and support contracts after project delivery to ensure your solution continues to run smoothly."
+            },
+
+            // --- QUESTIONS SUR LES CLIENTS ET REFERENCES ---
+            references: {
+                keywords: ["reference", "référence", "clients", "customers", "testimonial", "témoignage", "international"],
+                response: "🏢 We work with SMEs, large enterprises, and public institutions. Our clients include Danone, Anapec, Avon, and many others. We can provide references upon request."
+            },
+            client_list: {
+                keywords: ["who are your clients", "list of clients", "liste des clients", "who works with you"],
+                response: "🏢 We work with SMEs, large enterprises, and public institutions. Our clients include Danone, Anapec, Avon, and many others."
+            },
+            international: {
+                keywords: ["international", "foreign", "outside morocco", "étranger", "hors maroc"],
+                response: "🌍 We primarily work with Moroccan companies but are open to international projects. Contact us to discuss your specific needs."
+            },
+
+            // --- DEMANDES SPECIFIQUES ---
+            custom: {
+                keywords: ["custom", "sur mesure", "specific", "spécifique", "special", "particulier", "besoin", "need", "project", "projet", "personalized"],
+                response: "🔧 Yes, we offer custom solutions tailored to your specific needs. Contact us to discuss your project and we'll find the best solution together."
+            },
+            website_build: {
+                keywords: ["build website", "create website", "site web", "créer un site", "website development"],
+                response: "🌐 Yes, we offer web development services. Contact us to discuss your project and we'll help you build a website tailored to your needs."
+            },
+            infrastructure_help: {
+                keywords: ["infrastructure", "infrastructure help", "help with it", "IT infrastructure", "réseau", "network"],
+                response: "🏗️ Yes, we offer IT consulting and infrastructure services. We can help you design, implement, and manage your IT infrastructure."
+            },
+            email_migration: {
+                keywords: ["email migration", "professional email", "email service", "migration email", "email pro"],
+                response: "📧 Yes, we offer email migration services. We can help you set up professional email services for your business."
+            },
+            training: {
+                keywords: ["training", "formation", "learn", "apprendre", "train", "former", "onboarding"],
+                response: "📚 Yes, we provide training for our software solutions to ensure your team can use them effectively."
+            },
+
             // --- HORAIRES ---
             hours: {
                 keywords: ["hours", "open", "working", "time", "work", "closing", "close", "schedule", "when", "business hours", "opening", "closing time", "what time"],
@@ -273,6 +412,145 @@ document.addEventListener('DOMContentLoaded', function() {
                 keywords: ["aide", "help", "assist", "support", "que pouvez-vous faire", "que fais-tu", "peux-tu m'aider"],
                 response: "💡 Je peux repondre a vos questions sur :<br>• Nos services (hebergement, audit, developpement)<br>• Nos horaires d'ouverture<br>• Nos coordonnees (telephone, email, adresse)<br>• Nos clients et l'entreprise<br>• Vous pouvez aussi demander le formulaire de contact avec 'give me the form'<br>• La date du jour avec 'today'<br>• La meteo avec 'weather in [ville]'"
             },
+
+            // --- QUESTIONS GENERALES SUR L'ENTREPRISE ---
+            who: {
+                keywords: ["qui etes-vous", "qui est cactus", "c'est quoi cactus", "parle-moi de cactus", "presentation"],
+                response: "🏢 Cactus Informatique est une entreprise IT basee a Casablanca, Maroc, fondee en 2006. Nous sommes specialises dans les services IT, l'hebergement et le developpement logiciel."
+            },
+            experience: {
+                keywords: ["depuis combien de temps", "annees", "experience", "depuis", "2006", "fondee", "age"],
+                response: "📅 Nous sommes en activite depuis 2006, ce qui represente plus de 18 ans d'experience dans le secteur IT."
+            },
+            office: {
+                keywords: ["bureau", "visiter", "venir", "rencontre", "rendez-vous"],
+                response: "🏢 Oui, nous avons un bureau physique a Casablanca. Vous etes les bienvenus pour nous rendre visite pendant les heures de travail au 69 Lotissement Halioua, 20001, CASABLANCA AIN SEBAA, MAROC."
+            },
+
+            // --- QUESTIONS SUR LES SERVICES ---
+            hosting_explain: {
+                keywords: ["qu'est-ce que l'hebergement", "hebergement definition", "c'est quoi l'hebergement web"],
+                response: "🌐 L'hebergement web est un service qui permet de publier votre site internet. Nous proposons de l'hebergement mutualise, VPS et serveurs dedies avec cPanel, SSL gratuit et un conseiller technique dedie."
+            },
+            vps_explain: {
+                keywords: ["qu'est-ce qu'un vps", "vps definition", "c'est quoi un serveur virtuel"],
+                response: "🖥️ Un VPS (Virtual Private Server) est un plan d'hebergement qui vous offre des ressources dediees sur un serveur partage. Il offre plus de controle et de performance qu'un hebergement mutualise."
+            },
+            audit_explain: {
+                keywords: ["qu'est-ce qu'un audit it", "audit informatique", "definition audit"],
+                response: "🔍 Un audit informatique est un processus d'evaluation de votre infrastructure IT, securite, conformite et processus operationnels. Nous identifions les risques et fournissons des recommandations."
+            },
+            software_explain: {
+                keywords: ["quel logiciel", "quel type de logiciel", "developpement logiciel", "applications"],
+                response: "💻 Nous developpons des logiciels sur mesure incluant la gestion commerciale, la paie, les declarations en ligne et des applications web metier."
+            },
+            mobile_apps: {
+                keywords: ["application mobile", "android", "ios", "app phone"],
+                response: "📱 Nous nous concentrons principalement sur les applications web. Pour les solutions mobiles, nous pouvons discuter de vos besoins au cas par cas."
+            },
+            virtualization_explain: {
+                keywords: ["qu'est-ce que la virtualisation", "definition virtualisation"],
+                response: "☁️ La virtualisation permet de faire fonctionner plusieurs serveurs virtuels sur un seul serveur physique. Cela permet d'optimiser les ressources et de reduire les couts materiels."
+            },
+            opensource_explain: {
+                keywords: ["qu'est-ce que l'open source", "definition open source", "logiciel libre"],
+                response: "🆓 Les logiciels open source sont gratuits a utiliser, modifier et distribuer. Nous utilisons des solutions open source comme CRM, ERP, CMS et bases de donnees pour reduire les couts de nos clients."
+            },
+
+            // --- QUESTIONS SUR LES TARIFS ET DEVIS ---
+            pricing: {
+                keywords: ["prix", "cout", "tarif", "combien", "devis", "tarifs", "gratuit", "essai", "promotion", "reduction"],
+                response: "💰 Nos tarifs varient selon le service et vos besoins specifiques. Contactez-nous pour un devis personnalise via le formulaire de contact ou par telephone au (+212) 522-343-545."
+            },
+            price_list: {
+                keywords: ["grille tarifaire", "catalogue", "tarifs"],
+                response: "📋 Nous preferons adapter nos prix aux besoins de chaque client plutot que de publier une grille tarifaire fixe. Contactez-nous pour un devis personnalise."
+            },
+            trial: {
+                keywords: ["essai gratuit", "demo", "tester", "try"],
+                response: "🎯 Nous ne proposons pas d'essai gratuit, mais nous pouvons vous faire une demonstration de nos produits sur demande. Contactez-nous pour planifier une demonstration."
+            },
+            long_term_discount: {
+                keywords: ["reduction", "annuel", "long terme", "engagement"],
+                response: "💲 Oui, nous offrons des reductions pour les engagements annuels et les contrats a long terme. Contactez-nous pour plus de details."
+            },
+
+            // --- QUESTIONS TECHNIQUES ---
+            technologies: {
+                keywords: ["technologie", "outils", "stack technique"],
+                response: "💻 Nous utilisons des technologies modernes incluant HTML, CSS, JavaScript, PHP, MySQL, Bootstrap, jQuery et Linux."
+            },
+            wordpress: {
+                keywords: ["wordpress", "wp", "installateur automatique"],
+                response: "📝 Oui, nous proposons un hebergement avec installateur automatique WordPress. Vous pouvez installer WordPress en un clic depuis votre cPanel."
+            },
+            ssl: {
+                keywords: ["ssl", "certificat", "https", "securise"],
+                response: "🔒 Oui, nous incluons des certificats SSL gratuits avec nos plans d'hebergement pour securiser votre site web."
+            },
+            uptime: {
+                keywords: ["uptime", "garantie", "disponibilite", "99.9"],
+                response: "⏱️ Nous garantissons une disponibilite de 99.9% pour nos services d'hebergement pour que votre site soit toujours accessible."
+            },
+            backup: {
+                keywords: ["sauvegarde", "restauration", "backup"],
+                response: "💾 Oui, nous fournissons des sauvegardes regulieres dans le cadre de nos solutions d'hebergement et de securite. Vos donnees sont automatiquement sauvegardees."
+            },
+            migration: {
+                keywords: ["migration", "transfert", "deplacer", "site existant"],
+                response: "🔄 Oui, nous offrons une assistance pour la migration des nouveaux clients. Nous pouvons vous aider a transferer votre site existant vers nos services d'hebergement."
+            },
+
+            // --- QUESTIONS SUR LE SUPPORT ---
+            support: {
+                keywords: ["support", "assistance", "aide", "maintenance", "24/7", "delai", "disponibilite"],
+                response: "🛠️ Notre support est disponible du lundi au vendredi, de 9h00 a 17h00. Vous pouvez nous joindre par telephone au (+212) 522-343-545 ou par email a contact@cactus.net.ma."
+            },
+            response_time: {
+                keywords: ["delai de reponse", "reponse", "attente"],
+                response: "⏳ Nous nous engageons a repondre a toutes les demandes dans les 24 heures. Pour les urgences, appelez-nous directement au (+212) 522-343-545."
+            },
+            post_delivery: {
+                keywords: ["apres livraison", "apres projet", "contrat de maintenance", "support continu"],
+                response: "🔧 Oui, nous proposons des contrats de maintenance et de support apres la livraison du projet pour assurer le bon fonctionnement de votre solution."
+            },
+
+            // --- QUESTIONS SUR LES CLIENTS ET REFERENCES ---
+            references: {
+                keywords: ["reference", "clients", "temoinage", "international"],
+                response: "🏢 Nous travaillons avec des PME, grandes entreprises et institutions publiques. Nos clients incluent Danone, Anapec, Avon et bien d'autres. Nous pouvons fournir des references sur demande."
+            },
+            client_list: {
+                keywords: ["qui sont vos clients", "liste des clients", "qui travaille avec vous"],
+                response: "🏢 Nous travaillons avec des PME, grandes entreprises et institutions publiques. Nos clients incluent Danone, Anapec, Avon et bien d'autres."
+            },
+            international: {
+                keywords: ["international", "etranger", "hors maroc"],
+                response: "🌍 Nous travaillons principalement avec des entreprises marocaines mais sommes ouverts aux projets internationaux. Contactez-nous pour discuter de vos besoins specifiques."
+            },
+
+            // --- DEMANDES SPECIFIQUES ---
+            custom: {
+                keywords: ["sur mesure", "specifique", "particulier", "besoin", "projet", "personnalise"],
+                response: "🔧 Oui, nous proposons des solutions sur mesure adaptees a vos besoins specifiques. Contactez-nous pour discuter de votre projet et nous trouverons la meilleure solution ensemble."
+            },
+            website_build: {
+                keywords: ["creer un site", "site web", "developpement web"],
+                response: "🌐 Oui, nous proposons des services de developpement web. Contactez-nous pour discuter de votre projet et nous vous aiderons a creer un site adapte a vos besoins."
+            },
+            infrastructure_help: {
+                keywords: ["infrastructure", "aide it", "reseau"],
+                response: "🏗️ Oui, nous proposons des services de conseil et d'infrastructure IT. Nous pouvons vous aider a concevoir, mettre en oeuvre et gerer votre infrastructure IT."
+            },
+            email_migration: {
+                keywords: ["migration email", "email pro", "service email"],
+                response: "📧 Oui, nous proposons des services de migration email. Nous pouvons vous aider a configurer des services email professionnels pour votre entreprise."
+            },
+            training: {
+                keywords: ["formation", "apprendre", "former"],
+                response: "📚 Oui, nous proposons des formations pour nos solutions logicielles afin que votre equipe puisse les utiliser efficacement."
+            },
+
             // --- HORAIRES ---
             hours: {
                 keywords: ["horaires", "ouvert", "travail", "fermeture", "quand", "horaire", "jour", "heure", "quand etes-vous ouvert"],
@@ -342,8 +620,58 @@ document.addEventListener('DOMContentLoaded', function() {
         fr: "🤔 Je n'ai pas de reponse specifique a cela. Souhaitez-vous utiliser notre formulaire de contact ? Dites <strong>'give me the form'</strong>"
     };
 
-    // --- PRIORITE DES CATEGORIES ---
-    const priorityOrder = ["greetings", "thanks", "howareyou", "acknowledge", "goodbye", "help", "hours", "phone", "email", "address", "hosting", "development", "security", "virtualization", "opensource", "services", "company", "clients"];
+    // --- PRIORITE DES CATEGORIES (mise a jour) ---
+    const priorityOrder = [
+        "greetings", 
+        "thanks", 
+        "howareyou", 
+        "acknowledge", 
+        "goodbye", 
+        "help",
+        "who",
+        "experience",
+        "office",
+        "hosting_explain",
+        "vps_explain",
+        "audit_explain",
+        "software_explain",
+        "mobile_apps",
+        "virtualization_explain",
+        "opensource_explain",
+        "pricing",
+        "price_list",
+        "trial",
+        "long_term_discount",
+        "technologies",
+        "wordpress",
+        "ssl",
+        "uptime",
+        "backup",
+        "migration",
+        "support",
+        "response_time",
+        "post_delivery",
+        "references",
+        "client_list",
+        "international",
+        "custom",
+        "website_build",
+        "infrastructure_help",
+        "email_migration",
+        "training",
+        "hours", 
+        "phone", 
+        "email", 
+        "address", 
+        "hosting", 
+        "development", 
+        "security", 
+        "virtualization", 
+        "opensource", 
+        "services", 
+        "company", 
+        "clients"
+    ];
 
     //  FONCTIONS SPECIALES (DATE & METEO)
     
@@ -362,7 +690,7 @@ document.addEventListener('DOMContentLoaded', function() {
             : `📅 Today is ${dateStr}.`;
     }
 
-    // --- Fonction pour la meteo (CORRIGEE avec clé API et villes) ---
+    // --- Fonction pour la meteo ---
     async function getWeather(city, lang) {
         // --- correspondance des villes marocaines ---
         const cityMap = {
@@ -483,22 +811,19 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // --- 3. METEO (version amelioree avec memoire) ---
+        // --- 3. METEO ---
         const weatherKeywords = ['weather', 'meteo', 'temps', 'meteo', 'climat'];
         const hasWeather = weatherKeywords.some(kw => lowerText.includes(kw));
         
-        // Verifier si une ville est deja mentionnee dans la question
         const cityMatch = lowerText.match(/(?:in|a|pour|à)\s+([a-zA-Z\s\-]+)/);
         
         if (hasWeather) {
             if (cityMatch) {
-                // Ville deja donnee dans la question
                 const city = cityMatch[1].trim();
                 addMessage('⏳ ' + (lang === 'fr' ? 'Je regarde la meteo...' : 'Checking the weather...'), 'bot');
                 const weatherResponse = await getWeather(city, lang);
                 addMessage(weatherResponse, 'bot');
             } else {
-                // On demande la ville et on active la memoire
                 waitingForCity = true;
                 lastWeatherLang = lang;
                 addMessage(lang === 'fr' ? '🌤️ Pour quelle ville souhaitez-vous la meteo ?' : '🌤️ For which city would you like the weather?', 'bot');

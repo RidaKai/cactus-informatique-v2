@@ -196,13 +196,44 @@ body {
     margin-bottom: 0;
 }
 
-/* --- CTA Section --- */
+/* --- CTA Section avec image de fond --- */
 .cta-section {
-    background: linear-gradient(135deg, #28a745, #198754);
+    position: relative;
+    background: url('../img/products/Background.png') no-repeat center center;
+    background-size: cover;
     color: white;
     padding: 60px 0;
     text-align: center;
     flex-shrink: 0;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+}
+
+/* Overlay sombre pour la lisibilité du texte */
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+.cta-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section h2 {
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cta-section .lead {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .cta-section .btn-light {
@@ -216,6 +247,20 @@ body {
 .cta-section .btn-light:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 40px 0;
+        min-height: 200px;
+    }
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+    .cta-section .lead {
+        font-size: 1rem;
+    }
 }
 
 /* --- FOOTER --- */

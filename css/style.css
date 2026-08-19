@@ -174,6 +174,80 @@ section .text-muted {
     margin: 0 auto;
 }
 
+/* ---- Ligne de séparation entre les sections ---- */
+.section-divider {
+    border: 0;
+    border-top: 1px solid #dee2e6;
+    margin: 0;
+    opacity: 0.5;
+}
+
+/* ---- SHINY TEXT (texte noir + reflet vert) ---- */
+.shiny-text {
+    display: inline-block;
+    background: linear-gradient(120deg, 
+        #212529 0%, 
+        #212529 35%, 
+        #28a745 50%, 
+        #212529 65%, 
+        #212529 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+/* Animation du reflet */
+@keyframes shine {
+    0% {
+        background-position: 200% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+
+/* Pause au survol */
+.shiny-text:hover {
+    animation-play-state: paused;
+}
+
+/* Variante : texte noir + reflet vert plus lumineux */
+.shiny-text-bright {
+    display: inline-block;
+    background: linear-gradient(120deg, 
+        #212529 0%, 
+        #212529 35%, 
+        #3ddc84 50%, 
+        #212529 65%, 
+        #212529 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+/* Variante : texte gris foncé + reflet vert */
+.shiny-text-gray {
+    display: inline-block;
+    background: linear-gradient(120deg, 
+        #333 0%, 
+        #333 35%, 
+        #28a745 50%, 
+        #333 65%, 
+        #333 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
 /* ---- SECTION EXPERTISE ---- */
 
 #expertise {

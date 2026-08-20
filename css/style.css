@@ -174,12 +174,40 @@ section .text-muted {
     margin: 0 auto;
 }
 
-/* ---- Ligne de séparation entre les sections ---- */
 .section-divider {
     border: 0;
-    border-top: 1px solid #dee2e6;
+    height: 2px;
     margin: 0;
-    opacity: 0.5;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        #28a745 20%, 
+        #3ddc84 50%, 
+        #28a745 80%, 
+        transparent 100%
+    );
+    position: relative;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: radial-gradient(ellipse at 50% 0%, 
+        rgba(40, 167, 69, 0.2), 
+        transparent 70%
+    );
+    filter: blur(6px);
+    pointer-events: none;
+    animation: glowPulse 3s ease-in-out infinite 0.5s;
 }
 
 /* ---- SHINY TEXT (texte noir + reflet vert) ---- */
@@ -246,6 +274,54 @@ section .text-muted {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 3s linear infinite;
+}
+
+/* ---- GLOW BORDER CARD ---- */
+
+.glow-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid #e9ecef;
+}
+
+.glow-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Effet de glow sur la bordure --- */
+.glow-border {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 14px;
+    border: 2px solid transparent;
+    z-index: -1;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: none;
+}
+
+/* Effet de glow au survol */
+.glow-card:hover .glow-border {
+    border-color: #28a745;
+    box-shadow: 
+        0 0 15px rgba(40, 167, 69, 0.3),
+        inset 0 0 15px rgba(40, 167, 69, 0.1);
+}
+
+/* --- Variante avec dégradé animé --- */
+.glow-card-gradient .glow-border {
+    border-image: linear-gradient(45deg, #28a745, #20c997, #28a745) 1;
+    animation: glowSpin 3s linear infinite;
+}
+
+@keyframes glowSpin {
+    0% { border-image-source: linear-gradient(0deg, #28a745, #20c997, #28a745); }
+    50% { border-image-source: linear-gradient(180deg, #28a745, #20c997, #28a745); }
+    100% { border-image-source: linear-gradient(360deg, #28a745, #20c997, #28a745); }
 }
 
 /* ---- SECTION EXPERTISE ---- */

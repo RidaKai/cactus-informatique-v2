@@ -285,6 +285,7 @@ body {
 }
 
 /* --- CTA Section avec image de fond --- */
+
 .cta-section {
     position: relative;
     background: url('../img/products/BackgroundCta2.png') no-repeat center center;
@@ -296,10 +297,11 @@ body {
     min-height: 250px;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    transition: filter 0.5s ease;
 }
 
-/* Overlay sombre pour la lisibilité du texte */
-/*.cta-section::before {
+.cta-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -308,20 +310,42 @@ body {
     bottom: 0;
     background: rgba(0, 0, 0, 0.55);
     z-index: 1;
-}*/
+    transition: opacity 0.5s ease;
+}
+
+.cta-section:hover::before {
+    opacity: 0.3;
+}
+
+.cta-section:hover {
+    filter: brightness(1.05);
+}
+
+.cta-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 60%
+    );
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-section:hover::after {
+    opacity: 1;
+}
 
 .cta-section .container {
     position: relative;
     z-index: 2;
-}
-
-.cta-section h2 {
-    font-weight: 700;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.cta-section .lead {
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .cta-section .btn-light {

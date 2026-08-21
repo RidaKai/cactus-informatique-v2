@@ -150,6 +150,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// EFFET DE LUMIÈRE SUR CTA (suivi de la souris)
+
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaSections = document.querySelectorAll('.cta-section');
+    
+    ctaSections.forEach(section => {
+        section.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            this.style.setProperty('--mouse-x', x + '%');
+            this.style.setProperty('--mouse-y', y + '%');
+        });
+        
+        section.addEventListener('mouseleave', function() {
+            this.style.setProperty('--mouse-x', '50%');
+            this.style.setProperty('--mouse-y', '50%');
+        });
+    });
+});
+
 // CHATBOT WIDGET FLOTTANT
 
 document.addEventListener('DOMContentLoaded', function() {

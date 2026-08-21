@@ -285,6 +285,7 @@ body {
 }
 
 /* --- CTA SECTION avec image de fond --- */
+
 .cta-section {
     position: relative;
     background: url('../img/products/BackgroundCta2.png') no-repeat center center;
@@ -296,10 +297,12 @@ body {
     min-height: 250px;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    transition: filter 0.5s ease;
 }
 
-/* Overlay sombre pour la lisibilité du texte */
-/*.cta-section::before {
+/* Overlay sombre pour la lisibilité (gardé) */
+.cta-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -308,8 +311,42 @@ body {
     bottom: 0;
     background: rgba(0, 0, 0, 0.55);
     z-index: 1;
-}*/
+    transition: opacity 0.5s ease;
+}
 
+/* --- Effet au survol : overlay s'assombrit ou s'éclaircit --- */
+.cta-section:hover::before {
+    opacity: 0.3;  /* ← L'image devient plus visible */
+}
+
+.cta-section:hover {
+    filter: brightness(1.05);
+}
+
+/* --- Effet de lumière qui suit la souris --- */
+.cta-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 60%
+    );
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-section:hover::after {
+    opacity: 1;
+}
+
+/* Le texte reste au-dessus */
 .cta-section .container {
     position: relative;
     z-index: 2;

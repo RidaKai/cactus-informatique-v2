@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // --- EMAIL ---
             email: {
                 keywords: ["email", "mail", "contact", "e-mail", "message", "email address", "send email"],
-                response: "✉️ Send us an email at: contact@cactus.net.ma"
+                response: "✉️ Send us an email at: marouane.nikh@cactus.ma"
             },
             // --- ADRESSE ---
             address: {
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             office: {
                 keywords: ["bureau", "visiter", "venir", "rencontre", "rendez-vous"],
-                response: "🏢 Oui, nous avons un bureau physique a Casablanca. Vous etes les bienvenus pour nous rendre visite pendant les heures de travail au 69 Lotissement Halioua, 20001, CASABLANCA AIN SEBAA, MAROC."
+                response: "🏢 Oui, nous avons un bureau physique a Casablanca. Vous etes les bienvenus pour nous rendre visite pendant les heures de travail au 70 Allée des Phoenix, 20250, CASABLANCA"
             },
 
             // --- QUESTIONS SUR LES SERVICES ---
@@ -548,7 +548,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // --- QUESTIONS SUR LE SUPPORT ---
             support: {
                 keywords: ["support", "assistance", "aide", "maintenance", "24/7", "delai", "disponibilite"],
-                response: "🛠️ Notre support est disponible du lundi au vendredi, de 9h00 a 17h00. Vous pouvez nous joindre par telephone au (+212) 522-343-545 ou par email a contact@cactus.net.ma."
+                response: "🛠️ Notre support est disponible du lundi au vendredi, de 8h30 a 17h00. Vous pouvez nous joindre par telephone au (+212) 522-343-545 ou par email a contact@cactus.net.ma."
             },
             response_time: {
                 keywords: ["delai de reponse", "reponse", "attente"],
@@ -598,7 +598,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // --- HORAIRES ---
             hours: {
                 keywords: ["horaires", "ouvert", "travail", "fermeture", "quand", "horaire", "jour", "heure", "quand etes-vous ouvert"],
-                response: "🕐 Nous sommes ouverts du lundi au vendredi, de 9h00 a 17h00."
+                response: "🕐 Nous sommes ouverts du lundi au vendredi, de 8h30 a 17h00."
             },
             // --- TELEPHONE ---
             phone: {
@@ -608,12 +608,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // --- EMAIL ---
             email: {
                 keywords: ["email", "mail", "envoyer", "message", "e-mail", "adresse email"],
-                response: "✉️ Envoyez-nous un email a : contact@cactus.net.ma"
+                response: "✉️ Envoyez-nous un email a : marouane.nikh@cactus.ma"
             },
             // --- ADRESSE ---
             address: {
                 keywords: ["adresse", "ou", "localisation", "casablanca", "bureau", "visiter", "address", "vous trouver"],
-                response: "📍 Nous sommes situes au : 69 Lotissement Halioua, 20001, CASABLANCA AIN SEBAA, MAROC"
+                response: "📍 Nous sommes situes au : 70 Allée des Phoenix, 20250, CASABLANCA"
             },
             // --- SERVICES ---
             services: {

@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // --- HORAIRES ---
             hours: {
                 keywords: ["hours", "open", "working", "time", "work", "closing", "close", "schedule", "when", "business hours", "opening", "closing time", "what time"],
-                response: "🕐 We are open Monday to Friday, from 9:00 AM to 5:00 PM."
+                response: "🕐 We are open Monday to Friday, from 8:30 AM to 5:00 PM."
             },
             // --- TELEPHONE ---
             phone: {
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // --- ADRESSE ---
             address: {
                 keywords: ["address", "where", "location", "localisation", "casablanca", "office", "visit", "physical", "come"],
-                response: "📍 We are located at: 69 Lotissement Halioua, 20001, CASABLANCA AIN SEBAA, MOROCCO"
+                response: "📍 We are located at: 70 Allée des Phoenix, 20250, CASABLANCA "
             },
             // --- SERVICES ---
             services: {

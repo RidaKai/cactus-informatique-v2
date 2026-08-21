@@ -128,6 +128,28 @@ function toggleTech(id) {
     }
 }
 
+// EFFET DE LUMIÈRE SUR BACKGROUND 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.page-header');
+    
+    headers.forEach(header => {
+        header.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            this.style.setProperty('--mouse-x', x + '%');
+            this.style.setProperty('--mouse-y', y + '%');
+        });
+        
+        header.addEventListener('mouseleave', function() {
+            this.style.setProperty('--mouse-x', '50%');
+            this.style.setProperty('--mouse-y', '50%');
+        });
+    });
+});
+
 // CHATBOT WIDGET FLOTTANT
 
 document.addEventListener('DOMContentLoaded', function() {
